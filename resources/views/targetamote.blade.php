@@ -16,6 +16,16 @@
         <h3>月の収入</h3>
         <h3>月の支出</h3>
     </div>
+    <h2>内容</h2>
+    <div class="contents">
+        <h3>その月の支出</h3>
+        <h3>その月の収入</h3>
+        <h3>日付</h3>
+        <h3>金額</h3>
+    </div>
+    <div class="result">
+        <h3>結果</h3>
+    </div>
 </main>
 </body>
 </html>
