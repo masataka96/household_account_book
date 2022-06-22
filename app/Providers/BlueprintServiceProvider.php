@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Database\Schema\Blueprint;
 class BlueprintServiceProvider extends ServiceProvider
+
 {
     /**
      * Register services.
@@ -23,14 +24,6 @@ class BlueprintServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //データベース用system_columnsを定義
-        Blueprint::macro('system_columns', function () {
-            $this->timestamp('created_at')->nullabel();
-            $this->unsignedBigInteger('created_by')->nullbel();
-            $this->timestamp('updated_at')->nullabel();
-            $this->unsignedBigInteger('updated_by')->nullabel();
-            $this->timestamp('deleted_at')->nullabel();
-            $this->unsignedBigInteger('deleted_by')->nullabel();
-        });
+        
     }
 }
