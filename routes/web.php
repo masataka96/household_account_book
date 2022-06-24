@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Membercontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,6 @@ Route::get('/tukibetu_return/{now_tuki}/{now_seireki}', [App\Http\Controllers\ka
 
 Route::post('/data_search', [App\Http\Controllers\kakeiboController::class,'data_search']);
 
+
+Route::get('/targetamote',[Membercontroller::class,'targetamote'])->name('targetamote');
+Route::get('/targetamotesetting',[Membercontroller::class,'targetamotesetting'])->name('targetamotesetting');

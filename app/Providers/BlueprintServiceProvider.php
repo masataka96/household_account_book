@@ -3,8 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\Database\Schema\Blueprint;
 class BlueprintServiceProvider extends ServiceProvider
+
 {
     /**
      * Register services.
@@ -32,5 +33,6 @@ class BlueprintServiceProvider extends ServiceProvider
             ///$this->timestamp('deleted_at')->nullabel();
             ///$this->unsignedBigInteger('deleted_by')->nullabel();
       //  });
+        
     }
 }
