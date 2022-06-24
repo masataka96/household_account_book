@@ -162,7 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\BlueprintServiceProvider::class,
-
+        
         /*
          * Package Service Providers...
          */

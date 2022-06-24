@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Schema\Blueprint;
+//use Illuminate\Database\Schema\Blueprint;
+//use Illuminate\Support\ServiceProvider;
+//use Illuminate\Database\Schema\Blueprint;
 class BlueprintServiceProvider extends ServiceProvider
 
 {
@@ -34,5 +35,13 @@ class BlueprintServiceProvider extends ServiceProvider
             ///$this->unsignedBigInteger('deleted_by')->nullabel();
       //  });
         
+        Blueprint::macro('systemColumns', function () {
+           // $this->timestamp('created_at')->nullable();
+           // $this->unsignedBigInteger('created_by')->nullable();
+           // $this->timestamp('updated_at')->nullable();
+           // $this->unsignedBigInteger('updated_by')->nullable();
+           // $this->timestamp('deleted_at')->nullable();
+           // $this->unsignedBigInteger('deleted_by')->nullable();
+        });
     }
 }
