@@ -9,8 +9,8 @@
 @section('データ一覧')
 
 <header class="header_main"><div class="header_menu"><a class="tukibetu" href="http://127.0.0.1:8000/tarukame_totalling" >月別データ</a>
-    <a class="mokuhyou" href="" >目標金額</a><div class="logo"> <a href=""><img class="logo_pic" src="{{ asset('img/mark_yen_okaikei.png') }}" alt="ホームロゴ"></a></div>
-    <a class="nyuryoku" href="" >入力画面</a></div>
+    <a class="mokuhyou" href="http://127.0.0.1:8000/targetamotesetting" >目標金額</a><div class="logo"> <a href=""><img class="logo_pic" src="{{ asset('img/mark_yen_okaikei.png') }}" alt="ホームロゴ"></a></div>
+    <a class="nyuryoku" href="http://127.0.0.1:8000/" >入力画面</a></div>
     <div class="home_name">家計簿タルカメ</div>
     </header>
 
@@ -27,11 +27,24 @@
     @if($recodes==false)
 
          <tr>
-           <!-- <td>習得結果0です</td> -->
+         <?php
+   
+   $henkou="mypie_zero";
+   $yazirusimigi_henkou="yazirusimigi_zero";
+   $yazirusihidari_henkou="yazirusihidari_zero";
+   $karenda="karenda_zero";
+   $kensaku="kensaku_zero";
+?>
          </tr>
     @endif
     @if($recodes==true)
-    
+    <?php
+           $henkou="myPie";
+           $yazirusimigi_henkou="yazirusimigi";
+           $yazirusihidari_henkou="yazirusihidari";
+           $karenda="karenda";
+           $kensaku="kensaku";
+   ?>
     @foreach ($recodes as $syuturyoku)
     @foreach ($sisyutusum as $sisyutgoukei)
     @foreach ($syunyusum as $syunyugoukei)
@@ -51,13 +64,12 @@
   <div class="sisyutu_goukei">支出合計</div><div class="sisyutu_goukeigaku">{{number_format($sisyutgoukei->total_amount)}}円</div><div class="syunyu_goukei">収入合計</div><div class="syunyu_goukeigaku">{{number_format($syunyugoukei->total_amount)}}円</div><div class="syusi">収支</div><div class="syusi_goukeigaku">{{number_format($syunyugoukei->total_amount-$sisyutgoukei->total_amount)}}円</div>
    @endif
 
-   <div class="mypie_home"><canvas id="myPieChart1" width="3800" height="1080" class="mypie2"></canvas> </div>
+   <div class={{$henkou}}><canvas id="myPieChart1" width="3800" height="1080" class="mypie2"></canvas> </div>
   
-  
-  
-
-
+   
     
+
+
 
    <?php
    //$param=$sisyutgoukei->total_genre;
