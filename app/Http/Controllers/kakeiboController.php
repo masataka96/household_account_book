@@ -24,9 +24,9 @@ public function kakeibo_list()
     $day= 6;
     
     //$recodes = DB::table('product')->whereYear('created_at', $year)->get();->exists();
-    $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->exists();
+    $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
     if ($recodes) {
-        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->get();
+        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
         //dd($recodes);
     } elseif (!$recodes) {
         //$recodes = DB::table('product')->whereYear('created_at', $year)->whereMonth('created_at', $day)->decrement('count', 3);
@@ -55,9 +55,9 @@ public function kakeibo_home()
     $day= 6;
     
     
-    $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->exists();
+    $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
     if ($recodes) {
-        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->get();
+        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
         //dd($recodes);
     } elseif (!$recodes) {
         //$recodes = DB::table('product')->whereYear('created_at', $year)->whereMonth('created_at', $day)->decrement('count', 3);
@@ -87,9 +87,9 @@ public function add_month($now_tuki,$now_seireki)////次の月を取得
        $seireki=$seireki+1;
     }
     //$recodes = DB::table('product')->whereYear('created_at', $year)->get();->exists();
-    $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->exists();
+    $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
     if ($recodes) {
-        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->get();
+        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
         
     } elseif (!$recodes) {
         
@@ -119,9 +119,9 @@ public function return_month($now_tuki,$now_seireki)////前の月を取得
        $seireki=$seireki-1;
     }
     //$recodes = DB::table('product')->whereYear('created_at', $year)->get();->exists();
-    $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->exists();
+    $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
     if ($recodes) {
-        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->get();
+        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
         
     } elseif (!$recodes) {
         
@@ -149,9 +149,9 @@ public function data_search(Request $request) {
         $day= 12;
         $hiduke  = $dt->day;
 
-        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->exists();
+        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
         if ($recodes) {
-            $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $hiduke)->get();
+            $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
             
         } elseif (!$recodes) {
             
