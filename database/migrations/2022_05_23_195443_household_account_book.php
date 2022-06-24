@@ -10,6 +10,8 @@ class HouseholdAccountBook extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
+
+
             $table->string('name',100);
             $table->string('email',254);
             $table->string('password',128);
@@ -23,6 +25,7 @@ class HouseholdAccountBook extends Migration
             $table->date('date');
             $table->integer('amount')->nullable();
             $table->systemColumns(); // 共通カラム定義
+
         });
     }
 
