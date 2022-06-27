@@ -15,15 +15,12 @@ class kakeiboController extends Controller
 public function kakeibo_list()
 {   
     
-    //$seireki = Carbon::now('Asia/Tokyo')->toDateString(); // 今日
     $dt = new Carbon();
     $seireki = $dt->year;
     $tuki= $dt->month;
     $hiduke  = $dt->day;
-    $year= 2022;
-    $day= 6;
     
-    //$recodes = DB::table('product')->whereYear('created_at', $year)->get();->exists();
+    
     $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
     if ($recodes) {
         $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
@@ -39,7 +36,7 @@ public function kakeibo_list()
     return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
 }
 
-public function kakeibo_home()
+public function kakeibo_home()//ホーム画面で今月分のデータを取得する
 {   
     
    
@@ -47,8 +44,7 @@ public function kakeibo_home()
     $seireki = $dt->year;
     $tuki= $dt->month;
     $hiduke  = $dt->day;
-    $year= 2022;
-    $day= 6;
+    
     
     
     $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
@@ -129,7 +125,9 @@ public function return_month($now_tuki,$now_seireki)////前の月を取得
 }
 
 
-public function data_search(Request $request) {
+public function data_search(Request $request) //inputdataでデータの検索を行う
+
+{
 
       $dt = new Carbon();
       $seireki1=$request->input('seireki');
@@ -154,14 +152,14 @@ public function data_search(Request $request) {
         return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
     }
 
-    public function kakeibo_nenbetu()
+    public function kakeibo_nenbetu()//年別でデータを取得
     {   
         
-        //$seireki = Carbon::now('Asia/Tokyo')->toDateString(); // 今日
+        
         $dt = new Carbon();
         $seireki = $dt->year;
         
-        //$recodes = DB::table('product')->whereYear('created_at', $year)->get();->exists();
+      
         $recodes = DB::table('payments')->whereYear('created_at', $seireki)->exists();
         if ($recodes) {
             $recodes = DB::table('payments')->whereYear('created_at', $seireki)->get();
@@ -226,7 +224,8 @@ public function data_search(Request $request) {
 
 
     
-    public function data_search_seireki(Request $request) {
+    public function data_search_seireki(Request $request)//年別画面で西暦だけでデータを取得する
+     {
 
         $dt = new Carbon();
         $seireki=$request->input('seireki');

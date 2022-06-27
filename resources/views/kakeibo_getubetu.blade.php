@@ -95,10 +95,10 @@
 @if($recodes==false)
 
 <?php
-   $total_sisyutu=0;//$sisyutgoukei->total_spending;
+   $total_sisyutu=0;
    $sisyutu_json = json_encode($total_sisyutu);
 
-   $total_syunyu=0;//$syunyugoukei->total_income;
+   $total_syunyu=0;
    $syunyu_json = json_encode($total_syunyu);
    ?>
 
