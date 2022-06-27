@@ -52,9 +52,15 @@ Route::get('/tukibetu/{now_tuki}/{now_seireki}', [App\Http\Controllers\kakeiboCo
 
 Route::get('/tukibetu_return/{now_tuki}/{now_seireki}', [App\Http\Controllers\kakeiboController::class,'return_month']);
 
+Route::get('/tarukame_nenbetu', [App\Http\Controllers\kakeiboController::class,'kakeibo_nenbetu']);
+
+Route::get('/nenbetu/{now_seireki}', [App\Http\Controllers\kakeiboController::class,'add_year']);
+
+Route::get('/nenbetu_return/{now_seireki}', [App\Http\Controllers\kakeiboController::class,'return_year']);
+
 Route::post('/data_search', [App\Http\Controllers\kakeiboController::class,'data_search']);
 
-
+Route::post('/data_search_seireki', [App\Http\Controllers\kakeiboController::class,'data_search_seireki']);
 
 
 Route::get('/targetamote',[Membercontroller::class,'targetamote'])->name('targetamote');

@@ -27,19 +27,15 @@ public function kakeibo_list()
     $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
     if ($recodes) {
         $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
-        //dd($recodes);
+        
     } elseif (!$recodes) {
-        //$recodes = DB::table('product')->whereYear('created_at', $year)->whereMonth('created_at', $day)->decrement('count', 3);
-        //dd($recodes);
+       
     }
-    //$recodes = DB::table('product')->whereYear('created_at', $year)->whereMonth('created_at', $day)->get();
-    //$recodes = DB::table('product')->get();
-    $sisyutusum = DB::table('payments')->where('spending')->selectRaw('SUM(amount) AS total_amount')->get();
-    //dd($sisyutusum);
     
-    //dd($recodes);
-    $syunyusum  =   DB::table('payments')->where('income')->selectRaw('SUM(amount) AS total_amount')->get();
-   //dd($syunyusum);
+    $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+   
+    $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+   
     return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
 }
 
@@ -58,15 +54,14 @@ public function kakeibo_home()
     $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
     if ($recodes) {
         $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
-        //dd($recodes);
+      
     } elseif (!$recodes) {
-        //$recodes = DB::table('product')->whereYear('created_at', $year)->whereMonth('created_at', $day)->decrement('count', 3);
-        //dd($recodes);
+       
     }
     
-    $sisyutusum = DB::table('payments')->where('spending')->selectRaw('SUM(amount) AS total_amount')->get();
+    $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
    
-    $syunyusum  =   DB::table('payments')->where('income')->selectRaw('SUM(amount) AS total_amount')->get();
+    $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
   
     return view('kakeibo_home',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
 }
@@ -86,7 +81,7 @@ public function add_month($now_tuki,$now_seireki)////次の月を取得
        $tuki=1;
        $seireki=$seireki+1;
     }
-    //$recodes = DB::table('product')->whereYear('created_at', $year)->get();->exists();
+    
     $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->exists();
     if ($recodes) {
         $recodes = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->get();
@@ -95,11 +90,9 @@ public function add_month($now_tuki,$now_seireki)////次の月を取得
         
     }
 
-    $sisyutusum = DB::table('payments')->where('spending')->selectRaw('SUM(amount) AS total_amount')->get();
-    //dd($sisyutusum);
-    
-    //dd($recodes);
-    $syunyusum  =   DB::table('payments')->where('income')->selectRaw('SUM(amount) AS total_amount')->get();
+    $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+   
+    $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
    //dd($syunyusum);
     return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
 }
@@ -128,11 +121,9 @@ public function return_month($now_tuki,$now_seireki)////前の月を取得
     }
 
 
-    $sisyutusum = DB::table('payments')->where('spending')->selectRaw('SUM(amount) AS total_amount')->get();
-    //dd($sisyutusum);
-    
-    
-    $syunyusum  =   DB::table('payments')->where('income')->selectRaw('SUM(amount) AS total_amount')->get();
+    $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+   
+    $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
    //dd($syunyusum);
     return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
 }
@@ -156,15 +147,104 @@ public function data_search(Request $request) {
         } elseif (!$recodes) {
             
         }
-        $sisyutusum = DB::table('payments')->where('spending')->selectRaw('SUM(amount) AS total_amount')->get();
-        //dd($sisyutusum);
-        
-        
-        $syunyusum  =   DB::table('payments')->where('income')->selectRaw('SUM(amount) AS total_amount')->get();
+        $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+   
+        $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
        //dd($syunyusum);
         return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
     }
 
+    public function kakeibo_nenbetu()
+    {   
+        
+        //$seireki = Carbon::now('Asia/Tokyo')->toDateString(); // 今日
+        $dt = new Carbon();
+        $seireki = $dt->year;
+        
+        //$recodes = DB::table('product')->whereYear('created_at', $year)->get();->exists();
+        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->exists();
+        if ($recodes) {
+            $recodes = DB::table('payments')->whereYear('created_at', $seireki)->get();
+            
+        } elseif (!$recodes) {
+           
+        }
+        
+        $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+       
+        $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+       
+        return view('kakeibo_nenbetu',compact('recodes','sisyutusum','syunyusum','seireki'));
+    }
+
+    public function add_year($now_seireki)////次の年を取得
+    {   
+        
+       
+    
+        $dt = new Carbon();
+        $seireki = $now_seireki+1;
+        
+        
+        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->exists();
+        if ($recodes) {
+            $recodes = DB::table('payments')->whereYear('created_at', $seireki)->get();
+            
+        } elseif (!$recodes) {
+            
+        }
+    
+        $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+       
+        $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+       //dd($syunyusum);
+        return view('kakeibo_nenbetu',compact('recodes','sisyutusum','syunyusum','seireki'));
+    }
+    
+    
+    
+    public function return_year($now_seireki)////前の年を取得
+    {   
+        $dt = new Carbon();
+        $seireki = $now_seireki-1;
+       
+        $recodes = DB::table('payments')->whereYear('created_at', $seireki)->exists();
+        if ($recodes) {
+            $recodes = DB::table('payments')->whereYear('created_at', $seireki)->get();
+            
+        } elseif (!$recodes) {
+            
+        }
+    
+    
+        $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+       
+        $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+       //dd($syunyusum);
+        return view('kakeibo_nenbetu',compact('recodes','sisyutusum','syunyusum','seireki'));
+    }
 
 
+    
+    public function data_search_seireki(Request $request) {
+
+        $dt = new Carbon();
+        $seireki=$request->input('seireki');
+        
+       
+  
+          $recodes = DB::table('payments')->whereYear('created_at', $seireki)->exists();
+          if ($recodes) {
+              $recodes = DB::table('payments')->whereYear('created_at', $seireki)->get();
+              
+          } elseif (!$recodes) {
+              
+          }
+          $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+     
+          $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+         //dd($syunyusum);
+          return view('kakeibo_nenbetu',compact('recodes','sisyutusum','syunyusum','seireki'));
+      }
+  
 }

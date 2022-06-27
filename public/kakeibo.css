@@ -12,7 +12,7 @@ div.sisyutu_goukei{
 div.syunyu_goukei{
     display: inline-block;
     position: relative;
-    left: 720px;
+    left: 760px;
     top: 620px;
     font-size: 20px;
    
@@ -21,7 +21,7 @@ div.syunyu_goukei{
 div.syusi{
     display: inline-block;
     position: relative;
-    left: 800px;
+    left: 870px;
     top: 620px;
     font-size: 20px;
    
@@ -44,6 +44,15 @@ a.tukibetu{
     color: rgb(255, 255, 255);
     text-decoration: none;
     right:-1270px;
+    top: -5%;
+}
+a.nenbetu{
+    display: inline-block;
+    position: relative;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    right:-820px;
     top: -5%;
 }
 a.mokuhyou{
@@ -94,8 +103,8 @@ div.Balance_column{
     position: relative;
     top: 705px;
     border: solid 1px #535353;
-    right: -620px;
-   width: 670px;
+    right: -590px;
+   width: 690px;
    height: 100px;
 }
 div.myPie{
@@ -116,28 +125,28 @@ div.sisyutu_goukeigaku{
     display: inline-block;
     position: relative;
     top: 655px;
-    right: -590px;
+    right: -610px;
 }
 div.syunyu_goukeigaku{
     display: inline-block;
     position: relative;
     top: 655px;
-    right: -633px;
+    right: -710px;
 
 }
 div.syusi_goukeigaku{
     display: inline-block;
     position: relative;
     top: 655px;
-    right: -730px;
+    right: -820px;
 
 }
 
 input[type="number"] {
-    font-size: 60px;
-    width: 140px;
-    height: 80px;
-    border: solid 0px #cccccc;
+    font-size: 30px;
+    width: 80px;
+    height: 33px;
+    border: solid 1px #000000;
 }
 input[type="number"]::-webkit-outer-spin-button, 
 input[type="number"]::-webkit-inner-spin-button { 
@@ -215,23 +224,31 @@ div.myPie_home{
     height: 0%;
     top: 100px;
 }
+div.myPie{
+    position: relative;
+    height: 0%;
+    top: -30px;
+    right: 20px;
+}
 div.myPie_zero{
     position: relative;
     height: 0%;
     top: 100px;
+    right: 20px;
+    display:none;
 }
 div.yazirusimigi_zero{
     position: relative;
     width: 10px;
     right: 102px;
-    top: -129px;
+    top: -138px;
 }
 
 div.yazirusihidari_zero{
     position: relative;
     width: 10px;
     right: -760px;
-    top: -38px;
+    top: -48px;
 }
 div.kensaku_zero{
     position: relative;
@@ -246,4 +263,34 @@ div.karenda_zero{
     height: 10px;
     right: -1560px;
     top: -30px;
+}
+
+div.master_0{
+    position: relative;
+    right: -710px;
+    top: 300px;
+    height: 10px;
+    font-size: 50px;
+}
+div.hiduke_nenbetu{
+    display: inline-block;
+    position: relative;
+    top: 80px;
+    right: -865px;
+    font-size: 50px;
+
+}
+div.kensaku_nenbetu{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    right: -1650px;
+    top: -168px;
+}
+div.kensaku_zero_nenbetu{
+    position: relative;
+    width: 10px;
+    height: 10px;
+    right: -1660px;
+    top: -43px;
 }
