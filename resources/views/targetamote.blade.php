@@ -18,10 +18,10 @@
 <div class="container overflow-hidden">
   <div class="row gx-5">
     <div class="col">
-     <div class="p-3 border bg-light text-primary "></div>
+     <div class="p-3 border bg-light text-primary ">収入</div>
     </div>
     <div class="col">
-      <div class="p-3 border bg-light text-danger"></div>
+      <div class="p-3 border bg-light text-danger">支出</div>
     </div>
   </div>
 </div>
