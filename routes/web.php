@@ -66,3 +66,7 @@ Route::post('/data_search_seireki', [App\Http\Controllers\kakeiboController::cla
 Route::get('/targetamote',[Membercontroller::class,'targetamote'])->name('targetamote');
 Route::get('/targetamotesetting',[Membercontroller::class,'targetamotesetting'])->name('targetamotesetting');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
