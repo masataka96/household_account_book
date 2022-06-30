@@ -5,7 +5,13 @@ namespace App\Providers;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 
+
+
+
+
+
 class BlueprintServiceProvider extends ServiceProvider
+
 {
     /**
      * Register services.
@@ -25,13 +31,24 @@ class BlueprintServiceProvider extends ServiceProvider
     public function boot()
     {
         //データベース用system_columnsを定義
-        Blueprint::macro('systemColumns', function () {
-            $this->timestamp('created_at')->nullable();
-            $this->unsignedBigInteger('created_by')->nullable();
-            $this->timestamp('updated_at')->nullable();
-            $this->unsignedBigInteger('updated_by')->nullable();
-            $this->timestamp('deleted_at')->nullable();
-            $this->unsignedBigInteger('deleted_by')->nullable();
-        });
+
+       // Blueprint::macro('system_columns', function () {
+           // $this->timestamp('created_at')->nullabel();
+           // $this->unsignedBigInteger('created_by')->nullbel();
+            //$this->timestamp('updated_at')->nullabel();
+          //  $this->unsignedBigInteger('updated_by')->nullabel();
+           // $this->timestamp('deleted_at')->nullabel();
+            //$this->unsignedBigInteger('deleted_by')->nullabel();
+       //});
+        
+        //Blueprint::macro('systemColumns', function () {
+           // $this->timestamp('created_at')->nullable();
+           // $this->unsignedBigInteger('created_by')->nullable();
+           // $this->timestamp('updated_at')->nullable();
+           // $this->unsignedBigInteger('updated_by')->nullable();
+           // $this->timestamp('deleted_at')->nullable();
+           // $this->unsignedBigInteger('deleted_by')->nullable();
+        //});
     }
+
 }
