@@ -16,6 +16,7 @@ class HouseholdAccountBook extends Migration
             $table->string('name');
             $table->date('date');
             $table->integer('amount')->nullable();
+            $table->timestamps();
             //$table->systemColumns(); // 共通カラム定義
         });
     }
