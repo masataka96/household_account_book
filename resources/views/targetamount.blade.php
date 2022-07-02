@@ -17,11 +17,11 @@
 <P class="fs-2 text-center">目標金額:{{$money ?? ''}}</P>
 <div class="container overflow-hidden">
   <div class="row gx-5">
-    <div class="col">
-     <div class="p-3 border bg-light text-primary ">収入:{{$income ?? ''}}</div>
+    <div class="">
+     <div class="p-3 border bg-light text-primary ">収入:{{$amote ?? ''}}</div>
     </div>
-    <div class="col">
-      <div class="p-3 border bg-light text-danger">支出:{{$spending ?? ''}}</div>
+    <div class="">
+      <div class="p-3 border bg-light text-danger">支出:{{$amote ?? ''}}</div>
     </div>
   </div>
 </div>
@@ -39,12 +39,7 @@
 <div class="card" style="width: 150px;">
   <h5 class="card-header">結果</h5>
   <div class="card-body">
-  @if ($income - $spending >= $money)
-    <P>黒字</P>
-  @elseif ($income - $spending <= $money)
-    <p>赤字</p>
-  @endif
-    <a href="#" class=""></a>
+  <a href="#" class=""></a>
   </div>
 </div>
 </body>

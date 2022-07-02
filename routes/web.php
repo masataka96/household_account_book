@@ -63,9 +63,9 @@ Route::post('/data_search', [App\Http\Controllers\kakeiboController::class,'data
 Route::post('/data_search_seireki', [App\Http\Controllers\kakeiboController::class,'data_search_seireki']);
 
 // 目標金額画面の表示
-Route::get('/targetamote',[Membercontroller::class,'targetamote'])->name('targetamote');
+Route::get('/targetamount',[Membercontroller::class,'targetamount'])->name('targetamount');
 // 目標金額設定画面の表示
-Route::get('/targetamotesetting',[Membercontroller::class,'targetamotesetting'])->name('targetamotesetting');
+Route::get('/targetamountesetting',[Membercontroller::class,'targetamountesetting'])->name('targetamountesetting');
 
 
 Auth::routes();
