@@ -16,6 +16,8 @@ class Membercontroller extends Controller
 
     }
 
+
+
     // 目標金額の設定
     public function targetamotesetting(Request $request){
 
