@@ -7,7 +7,15 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 class kakeiboController extends Controller
 {
-  
+    /**
+     * コンストラクタ（ログイン認証）
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 
 //////////////////////////////////////家計簿システム//////////////////////////////////////////////////////////////////

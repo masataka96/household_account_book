@@ -29,7 +29,7 @@ class BlueprintServiceProvider extends ServiceProvider
 
         //Blueprint::macro('system_columns', function () {
             ///$this->timestamp('created_at')->nullabel();
-           // $this->unsignedBigInteger('created_by')->nullbel();
+           // $this->unsignedBigInteger('created_by')->nullabel();
            /// $this->timestamp('updated_at')->nullabel();
            /// $this->unsignedBigInteger('updated_by')->nullabel();
             ///$this->timestamp('deleted_at')->nullabel();
