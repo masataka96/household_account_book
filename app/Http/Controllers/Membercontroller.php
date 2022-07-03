@@ -2,9 +2,16 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\Payment;
 class Membercontroller extends Controller
 {
+    public function __construct()
+    {
+        $this->payment = new Payment();
+    }
+
     // 目標金額を保持
     public function targetamount(Request $request){
         $money = $request->input('money');
