@@ -81,8 +81,6 @@
    $syunyu_json = json_encode($total_syunyu);
    ?>
 @endif
-<<<<<<< HEAD
-=======
 
 @if($recodes==false)
 
@@ -103,7 +101,6 @@
 
 
 
->>>>>>> 4d88150adcf244c312b2e4c569d10f2882bafe0e
 
 @if($recodes==false)
 
@@ -115,13 +112,10 @@
    $syunyu_json = json_encode($total_syunyu);
    ?>
 
-<<<<<<< HEAD
 
 @endif
 
 
-=======
->>>>>>> 4d88150adcf244c312b2e4c569d10f2882bafe0e
   <script>
 
 var sisyutu = JSON.parse('<?php echo $sisyutu_json; ?>');

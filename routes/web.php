@@ -41,7 +41,7 @@ Route::get('/edit/{id}', [App\Http\Controllers\PaymentController::class, 'edit']
 Route::post('/update/{id}', [App\Http\Controllers\PaymentController::class, 'update'])->name('payment.update');
 //収支の削除処置
 Route::post('/destroy{id}', [App\Http\Controllers\PaymentController::class, 'destroy'])->name('payment.destroy');
-<<<<<<< HEAD
+
 
 
 //ホーム画面
@@ -68,8 +68,6 @@ Route::get('/targetamote',[Membercontroller::class,'targetamote'])->name('target
 Route::get('/targetamotesetting',[Membercontroller::class,'targetamotesetting'])->name('targetamotesetting');
 
 
-<<<<<<< HEAD
-=======
 
 
 //ホーム画面
@@ -102,9 +100,8 @@ Route::post('/targetamountpost',[Membercontroller::class,'targetamountpost'])->n
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
-=======
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
->>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db
+
