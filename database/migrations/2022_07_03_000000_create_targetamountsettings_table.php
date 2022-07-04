@@ -17,8 +17,8 @@ class CreateTargetamountsettingsTable extends Migration
             $table->integer('id')->autoIncrement();
             $table->integer('user_id')->nullable();
             $table->integer('targetamountsetting')->nullable();
-            $table->integer('income');
-            $table->integer('spending');
+            $table->char('income ,20');
+            $table->char('spending ,20');
             $table->timestamps();
             //$table->systemColumns(); // 共通カラム定義
         });

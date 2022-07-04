@@ -18,6 +18,8 @@ class Targetamountsetting extends Model
         protected $fillable = [
             'targetamountsetting',
             'user_id',
+            'income',
+            'spending',
         ];
 
 
