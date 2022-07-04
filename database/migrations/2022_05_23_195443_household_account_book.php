@@ -9,7 +9,7 @@ class HouseholdAccountBook extends Migration
     public function up()
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->integer('id');
+            $table->integer('id')->autoIncrement;
 
 
             $table->string('name',100);
