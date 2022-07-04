@@ -18,6 +18,13 @@ class HouseholdAccountBook extends Migration
             $table->string('grade',50);
             //$table->system_columns(); //共通カラム定義を呼び出し
 
+
+            $table->string('name',100);
+            $table->string('email',254);
+            $table->string('password',128);
+            $table->string('grade',50);
+            //$table->system_columns(); //共通カラム定義を呼び出し
+
         });
     }
 
