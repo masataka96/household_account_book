@@ -8,21 +8,15 @@ class HouseholdAccountBook extends Migration
 {
     public function up()
     {
-          Schema::create('payments', function (Blueprint $table) {
-                $table->integer('id')->autoIncrement();
+        Schema::create('payments', function (Blueprint $table) {
+            $table->integer('id')->autoIncrement();
 
 
-
-            $table->integer('user_id')->nullable();
-            $table->integer('spending')->nullable();
-            $table->integer('income')->nullable();
-            $table->string('payment_name');
-            $table->date('date');
-            $table->integer('amount')->nullable();
-            //$table->systemColumns(); // 共通カラム定義
-            //$table->systemColumns(); // 共通カラム定義
-            //$table->systemColumns(); // 共通カラム定義
-            //$table->systemColumns(); // 共通カラム定義
+            $table->string('name',100);
+            $table->string('email',254);
+            $table->string('password',128);
+            $table->string('grade',50);
+            //$table->system_columns(); //共通カラム定義を呼び出し
 
         });
     }
