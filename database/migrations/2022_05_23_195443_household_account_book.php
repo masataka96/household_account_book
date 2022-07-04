@@ -11,7 +11,7 @@ class HouseholdAccountBook extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
 
-
+            //テーブルの定義
             $table->string('name',100);
             $table->string('email',254);
             $table->string('password',128);
