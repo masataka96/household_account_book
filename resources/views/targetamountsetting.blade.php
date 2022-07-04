@@ -16,8 +16,8 @@
 
 <body>
     <h1 class="main-title mt-5">目標金額設定</h1>
-    {{Form::open(['method' => 'get' , 'url' => 'targetamote'])}}
-    <P class="fs-1 text-center mt-5">金額:{{Form::text('money' , '' , ['id' => 'money'])}}</p>
+    {{Form::open(['method' => 'post' , 'url' => 'targetamountpost'])}}
+    <P class="fs-1 text-center mt-5">金額:{{Form::text('money' , $targetamountsetting , ['id' => 'money'])}}</p>
     <P class="fs-3 text-center mt-5">{{ Form::button('設定' , ['type' => 'submit'])}}</P>
     {{Form::close()}}
 
