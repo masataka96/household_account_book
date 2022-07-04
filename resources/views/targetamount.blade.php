@@ -14,14 +14,14 @@
     <h1 class="main-title mt-5">家計簿</h1>
 </header>
 <body>
-<P class="fs-2 text-center">目標金額:{{$money ?? ''}}</P>
+<P class="fs-2 text-center">目標金額:{{ $targetamountsetting->targetamountsetting}}</P>
 <div class="container overflow-hidden">
   <div class="row gx-5">
     <div class="col">
-     <div class="p-3 border bg-light text-primary ">収入</div>
+     <div class="p-3 border bg-light text-primary ">収入:</div>
     </div>
     <div class="col">
-      <div class="p-3 border bg-light text-danger">支出</div>
+      <div class="p-3 border bg-light text-danger">支出:</div>
     </div>
   </div>
 </div>
