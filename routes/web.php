@@ -62,9 +62,12 @@ Route::post('/data_search', [App\Http\Controllers\kakeiboController::class,'data
 //年別画面で数値を自分で入力して検索する
 Route::post('/data_search_seireki', [App\Http\Controllers\kakeiboController::class,'data_search_seireki']);
 
+// 目標金額画面の表示
+Route::get('/targetamount',[Membercontroller::class,'targetamount'])->name('targetamount');
+// 目標金額設定画面の表示
+Route::get('/targetamountsetting',[Membercontroller::class,'targetamountsetting'])->name('targetamountsetting');
 
-Route::get('/targetamote',[Membercontroller::class,'targetamote'])->name('targetamote');
-Route::get('/targetamotesetting',[Membercontroller::class,'targetamotesetting'])->name('targetamotesetting');
+Route::post('/targetamountpost',[Membercontroller::class,'targetamountpost'])->name('targetamountpost');
 
 
 Auth::routes();
