@@ -8,7 +8,7 @@
     <fieldset>
         <div class="form-group">
             <label for="name">{{ __('内容') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="name" id="name">
+            <input type="text" class="form-control" name="payment_name" id="payment_name">
 
             <label for="amount">{{ __('支出|収入') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
             <input type="number" class="form-control" name="amount" id="amount">

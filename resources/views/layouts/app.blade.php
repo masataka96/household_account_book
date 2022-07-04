@@ -17,18 +17,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
- <!-- Font Awesome -->
- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-
-<!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-<!--Bootstrap CSS-->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-
 </head>
 <body>
     <div id="app">
@@ -86,6 +79,7 @@
             </div>
         </nav>
 
+<<<<<<< HEAD
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
@@ -154,11 +148,14 @@
         </nav>
 >>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
 
+=======
+>>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db
         <main class="py-4">
             @yield('content')
         </main>
     </div>
 </body>
+<<<<<<< HEAD
 </html>
 <<<<<<< HEAD
 </html>
@@ -168,3 +165,6 @@
 
 =======
 >>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
+=======
+</html>
+>>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db

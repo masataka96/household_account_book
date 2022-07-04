@@ -6,10 +6,14 @@
         <div class="col-md-8">
             <div class="card">
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <div class="card-header text-center lead">{{ __('家計簿ログイン画面') }}</div>
 =======
                 <div class="card-header">{{ __('Login') }}</div>
 >>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
+=======
+                <div class="card-header text-center lead">{{ __('家計簿ログイン画面') }}</div>
+>>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -17,10 +21,14 @@
 
                         <div class="row mb-3">
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('メールアドレス') }}</label>
 =======
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 >>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
+=======
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('メールアドレス') }}</label>
+>>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -35,10 +43,14 @@
 
                         <div class="row mb-3">
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード') }}</label>
 =======
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 >>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
+=======
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('パスワード') }}</label>
+>>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">

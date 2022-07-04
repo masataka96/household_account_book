@@ -68,6 +68,7 @@ Route::get('/targetamote',[Membercontroller::class,'targetamote'])->name('target
 Route::get('/targetamotesetting',[Membercontroller::class,'targetamotesetting'])->name('targetamotesetting');
 
 
+<<<<<<< HEAD
 =======
 
 
@@ -102,3 +103,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 >>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
+=======
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+>>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db
