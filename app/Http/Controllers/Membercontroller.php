@@ -18,7 +18,6 @@ class Membercontroller extends Controller
 
     // 目標金額とデータの取得
     public function targetamount(Request $request){
-        $money = $request->input('money');
         // $payments = Payment::table('income')->sum('income');
         // $payments = Payment::table('spendeing')->sum('spending');
         $payments = DB::table('payments')->sum('income');
@@ -26,7 +25,6 @@ class Membercontroller extends Controller
         $payments = $this->payment->findAllPayments();
         $targetamountsetting = Targetamountsetting::where('user_id',1)->first();
         return view('targetamount')->with([
-            'money' => $money,
             'payments' => $payments,
             'targetamountsetting' => $targetamountsetting,
         ]);
