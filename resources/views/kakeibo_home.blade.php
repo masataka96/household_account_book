@@ -69,20 +69,31 @@
    <div class={{$henkou}}><canvas id="myPieChart1" width="3800" height="1080" class="mypie2"></canvas> </div>
   
    
-    
 
 
 
-   <?php
+   @if($recodes==true)
+    <?php
    $total_sisyutu=$sisyutgoukei->total_spending;
    $sisyutu_json = json_encode($total_sisyutu);
+
    $total_syunyu=$syunyugoukei->total_income;
    $syunyu_json = json_encode($total_syunyu);
    ?>
+@endif
 
-   
+@if($recodes==false)
+
+<?php
+   $total_sisyutu=0;
+   $sisyutu_json = json_encode($total_sisyutu);
+
+   $total_syunyu=0;
+   $syunyu_json = json_encode($total_syunyu);
+   ?>
 
 
+@endif
 
 
   <script>
