@@ -9,8 +9,7 @@ class HouseholdAccountBook extends Migration
     public function up()
     {
         Schema::create('payments', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
-
+            $table->integer('id');
 
 <<<<<<< HEAD
 
@@ -19,6 +18,7 @@ class HouseholdAccountBook extends Migration
             $table->string('password',128);
             $table->string('grade',50);
 
+<<<<<<< HEAD
             
 =======
             // $table->string('name',100);
@@ -45,6 +45,9 @@ class HouseholdAccountBook extends Migration
 =======
             //$table->systemColumns(); // 共通カラム定義
 >>>>>>> 4d88150adcf244c312b2e4c569d10f2882bafe0e
+=======
+            $table->system_columns(); //共通カラム定義の呼び出し
+>>>>>>> 0b9407ffbd6a88de273359744ff1875ed87c0b73
 
         });
     }
