@@ -29,4 +29,8 @@ return new class extends Migration
     {
         Schema::dropIfExists('password_resets');
     }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
