@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
+@extends('layouts.base')
+
+@section('title','家計簿アプリ')
+
+@section('h1','家計簿')
+
 @section('content')
-<div>
-    <h1>ホームへ戻る</h1>
-</div>
+
 <h1>収支一覧</h1>
 <table class="table table-striped">
     <thead>
@@ -19,7 +23,7 @@
         @foreach ($payments as $payment)
         <tr>
             <td>{{ $payment->date }}</td>
-            <td>{{ $payment->name }}</td>
+            <td>{{ $payment->payment_name }}</td>
             <td>{{ $payment->amount }}</td>
             <td><a href="{{ route('payment.edit', ['id'=>$payment->id]) }}" class="btn btn-info">編集</a></td>
             <td>

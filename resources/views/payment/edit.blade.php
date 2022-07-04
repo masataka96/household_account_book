@@ -8,11 +8,11 @@
     <fieldset>
       <div class="form-group">
             <label for="name">{{ __('内容') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="text" class="form-control" name="name" id="name">
+            <input type="text" class="form-control" name="payment_name" id="payment_name" value="{{ $payment->payment_name}}">
             <label for="amount">{{ __('支出|収入') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="number" class="form-control" name="amount" id="amount">
+            <input type="number" class="form-control" name="amount" id="amount" value="{{ $payment->amount}}">
             <label for="date">{{ __('日付') }}<span class="badge badge-danger ml-2">{{ __('必須') }}</span></label>
-            <input type="date" class="form-control" name="date" id="date">
+            <input type="date" class="form-control" name="date" id="date" value="{{ $payment->date}}">
       </div>
       <div class="d-flex justify-content-between pt-3">
         <a href="{{ route('payment.index') }}" class="btn btn-outline-secondary" role="button">

@@ -21,7 +21,7 @@ class Payment extends Model
         'user_id',
         'spending',
         'income',
-        'name',
+        'payment_name',
         'date',
         'amount',
         'created_at',
@@ -53,7 +53,7 @@ class Payment extends Model
     {
         // リクエストデータを基に管理マスターユーザーに登録する
         return $this->create([
-            'name' => $request->name,
+            'payment_name' => $request->payment_name,
             'amount' => $request->amount,
             'date' => $request->date,
         ]);
@@ -65,7 +65,7 @@ class Payment extends Model
     public function updatePayment($request, $payment)
     {
         $result = $payment->fill([
-            'name' => $request->name,
+            'payment_name' => $request->payment_name,
             'amount' => $request->amount,
             'date' => $request->date,
         ])->save();

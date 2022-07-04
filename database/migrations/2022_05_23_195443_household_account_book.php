@@ -21,10 +21,12 @@ class HouseholdAccountBook extends Migration
             $table->integer('user_id')->nullable();
             $table->integer('spending')->nullable();
             $table->integer('income')->nullable();
-            $table->string('name');
+            $table->string('payment_name');
             $table->date('date');
             $table->integer('amount')->nullable();
+
             //$table->systemColumns(); // 共通カラム定義
+
 
         });
     }
