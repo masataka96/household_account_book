@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use App\Models\Targetamountsetting;
-use Illuminate\Support\Facades\DB;
 class Membercontroller extends Controller
 {
 
@@ -19,8 +18,17 @@ class Membercontroller extends Controller
     // 目標金額とデータの取得
     public function targetamount(Request $request){
         $money = $request->input('money');
-        //$payments = DB::table('payments')->sum('income');
-        //$payments = DB::table('payments')->sum('spending');
+        // 収入の合計をuser_idごとに計算
+        $payments = Payment::select('user_id')
+        ->selectRaw('SUM(income) as income')
+        ->groupBy('user_id')
+        ->get();
+        // 支出の合計をuser_idごとに計算
+        $payments = Payment::select('user_id')
+        ->selectRaw('SUM(spending) as spnding')
+        ->groupBy('user_id')
+        ->get();
+
         $payments = $this->payment->findAllPayments();
         $targetamountsetting = Targetamountsetting::where('user_id',1)->first();
         return view('targetamount')->with([

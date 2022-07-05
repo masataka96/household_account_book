@@ -14,7 +14,7 @@
     <h1 class="main-title mt-5">家計簿</h1>
 </header>
 <body>
-<P class="fs-2 text-center">目標金額:{{ $targetamountsetting->targetamountsetting}}</P>
+<P class="fs-2 text-center">目標金額:{{ $targetamountsetting->targetamountsetting??''}}</P>
 <div class="container overflow-hidden">
   <div class="row gx-5">
     <div class="col">
@@ -27,10 +27,13 @@
 </div>
     <tbody>
         @foreach ($payments as $payment)
-          <tr>
-            <td>{{ $payment->income }}</td>
-            <td>{{ $payment->spending }}</td>
-          </tr>
+          <th>ユーザー</th>
+          <th>合計値</th>
+              <tr>
+                <td>{{ $payment->user_id }}</td>
+                <td>{{ $payment->income }}</td>
+                <td>{{ $payment->spending }}</td>
+              </tr>
         @endforeach
     </tbody>
 <table class="table table-bordered mt-5 mb-5 text-center">

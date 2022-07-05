@@ -16,6 +16,12 @@ class HouseholdAccountBook extends Migration
             $table->string('email',254);
             $table->string('password',128);
             $table->string('grade',50);
+            $table->integer('user_id')->nullable();
+            $table->integer('income')->nullable();
+            $table->integer('spending')->nullable();
+            $table->string('payment_name');
+            $table->date('date');
+            $table->integer('amount')->nullable();
 
             //$table->system_columns(); //共通カラム定義の呼び出し
 
