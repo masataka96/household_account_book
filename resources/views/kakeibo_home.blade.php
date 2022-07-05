@@ -12,6 +12,7 @@
     <a class="mokuhyou" href="http://127.0.0.1:8000/targetamotesetting" >目標金額</a><div class="logo"> <a href=""><img class="logo_pic" src="{{ asset('img/mark_yen_okaikei.png') }}" alt="ホームロゴ"></a></div>
     <a class="nyuryoku" href="http://127.0.0.1:8000/" >入力画面</a><a class="nenbetu" href="http://127.0.0.1:8000/tarukame_nenbetu" >年別データ</a></div>
     <div class="home_name">家計簿タルカメ</div>
+    <a class="logout" href="">ログアウト</a>
     </header>
 
 
@@ -53,23 +54,26 @@
     @method('delete')
         
     {{ csrf_field() }}
-    
+    <table class="table table-striped">
+    <div class="itiran"> <th>内容</th> <th>支出</th><th>収入</th><th>登録日時</th> </div>
     <tr>
     
+    <td>{{ $syuturyoku->name }}<td>{{ $syuturyoku->spending }}<td>{{ $syuturyoku->income }}<td>{{ $syuturyoku->created_at}}</td>
    </tr>
+   
    @endforeach
    @endforeach
    @endforeach
    
-   
+   </table>
   <div class="Balance_column"> </div>
   <div class="sisyutu_goukei">支出合計</div><div class="sisyutu_goukeigaku">{{number_format($sisyutgoukei->total_spending)}}円</div><div class="syunyu_goukei">収入合計</div><div class="syunyu_goukeigaku">{{number_format($syunyugoukei->total_income)}}円</div><div class="syusi">収支</div><div class="syusi_goukeigaku">{{number_format($syunyugoukei->total_income-$sisyutgoukei->total_spending)}}円</div>
    @endif
-
+   
    <div class={{$henkou}}><canvas id="myPieChart1" width="3800" height="1080" class="mypie2"></canvas> </div>
   
    
-
+   
 
 
    @if($recodes==true)

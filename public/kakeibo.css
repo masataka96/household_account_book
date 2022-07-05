@@ -294,3 +294,8 @@ div.kensaku_zero_nenbetu{
     right: -1660px;
     top: -43px;
 }
+table{
+position: relative;
+text-align: center;
+top: 900px;
+}

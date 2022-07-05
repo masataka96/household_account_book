@@ -55,9 +55,9 @@ public function kakeibo_home()//ホーム画面で今月分のデータを取得
        
     }
     
-    $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+    $sisyutusum = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(spending) AS total_spending')->get();
    
-    $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+    $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(income) AS total_income')->get();
   
     return view('kakeibo_home',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
 }
@@ -86,9 +86,9 @@ public function add_month($now_tuki,$now_seireki)////次の月を取得
         
     }
 
-    $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+    $sisyutusum = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(spending) AS total_spending')->get();
    
-    $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+    $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(income) AS total_income')->get();
    //dd($syunyusum);
     return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
 }
@@ -117,9 +117,9 @@ public function return_month($now_tuki,$now_seireki)////前の月を取得
     }
 
 
-    $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+    $sisyutusum = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(spending) AS total_spending')->get();
    
-    $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+    $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(income) AS total_income')->get();
    //dd($syunyusum);
     return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
 }
@@ -145,9 +145,9 @@ public function data_search(Request $request) //inputdataでデータの検索�
         } elseif (!$recodes) {
             
         }
-        $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
+        $sisyutusum = DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(spending) AS total_spending')->get();
    
-        $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+        $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(income) AS total_income')->get();
        //dd($syunyusum);
         return view('kakeibo_getubetu',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
     }
@@ -168,10 +168,9 @@ public function data_search(Request $request) //inputdataでデータの検索�
            
         }
         
-        $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
-       
-        $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
-       
+        $sisyutusum = DB::table('payments')->whereYear('created_at', $seireki)->selectRaw('SUM(spending) AS total_spending')->get();
+   
+        $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->selectRaw('SUM(income) AS total_income')->get();
         return view('kakeibo_nenbetu',compact('recodes','sisyutusum','syunyusum','seireki'));
     }
 
@@ -192,9 +191,9 @@ public function data_search(Request $request) //inputdataでデータの検索�
             
         }
     
-        $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
-       
-        $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+        $sisyutusum = DB::table('payments')->whereYear('created_at', $seireki)->selectRaw('SUM(spending) AS total_spending')->get();
+   
+        $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->selectRaw('SUM(income) AS total_income')->get();
        //dd($syunyusum);
         return view('kakeibo_nenbetu',compact('recodes','sisyutusum','syunyusum','seireki'));
     }
@@ -215,9 +214,9 @@ public function data_search(Request $request) //inputdataでデータの検索�
         }
     
     
-        $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
-       
-        $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+        $sisyutusum = DB::table('payments')->whereYear('created_at', $seireki)->selectRaw('SUM(spending) AS total_spending')->get();
+   
+        $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->selectRaw('SUM(income) AS total_income')->get();
        //dd($syunyusum);
         return view('kakeibo_nenbetu',compact('recodes','sisyutusum','syunyusum','seireki'));
     }
@@ -239,9 +238,9 @@ public function data_search(Request $request) //inputdataでデータの検索�
           } elseif (!$recodes) {
               
           }
-          $sisyutusum = DB::table('payments')->selectRaw('SUM(spending) AS total_spending')->get();
-     
-          $syunyusum  =   DB::table('payments')->selectRaw('SUM(income) AS total_income')->get();
+          $sisyutusum = DB::table('payments')->whereYear('created_at', $seireki)->selectRaw('SUM(spending) AS total_spending')->get();
+   
+        $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->selectRaw('SUM(income) AS total_income')->get();
          //dd($syunyusum);
           return view('kakeibo_nenbetu',compact('recodes','sisyutusum','syunyusum','seireki'));
       }
