@@ -43,4 +43,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * ユーザーの保持する全タスク
+     */
+    public function payments()
+    {
+        return $this->hasmany(Payment::class);
+    }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>家計簿ログイン画面</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -90,6 +90,7 @@
                         </div>
                     </form>
                 </div>
+                <a class="btn btn-link" href="/register" >{{ __('New member registration here') }}</a>
             </div>
         </div>
     </div>
