@@ -17,11 +17,11 @@
 <body>
     <nav class="navbar navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">家計簿</a>
+        <a class="navbar-brand fs-3" href="#">家計簿</a>
     </div>
     </nav>
 
-    <h1 class="main-title mt-4">目標金額設定</h1>
+    <h1 class="main-title mt-4 fs-1">目標金額設定</h1>
     {{Form::open(['method' => 'post' , 'url' => 'targetamountpost'])}}
     <P class="fs-1 text-center mt-5">金額:{{Form::text('money' , $targetamountsetting , ['id' => 'money'])}}</p>
     <P class="fs-3 text-center mt-5">{{ Form::button('設定' , ['type' => 'submit'])}}</P>

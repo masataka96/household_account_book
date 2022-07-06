@@ -9,7 +9,7 @@
 @section('データ一覧')
 
 <header class="header_main"><div class="header_menu"><a class="tukibetu" href="http://127.0.0.1:8000/tarukame_totalling" >月別データ</a>
-    <a class="mokuhyou" href="http://127.0.0.1:8000/targetamotesetting" >目標金額</a><div class="logo"> <a href=""><img class="logo_pic" src="{{ asset('img/mark_yen_okaikei.png') }}" alt="ホームロゴ"></a></div>
+    <a class="mokuhyou" href="http://127.0.0.1:8000/targetamountsetting" >目標金額</a><div class="logo"> <a href=""><img class="logo_pic" src="{{ asset('img/mark_yen_okaikei.png') }}" alt="ホームロゴ"></a></div>
     <a class="nyuryoku" href="http://127.0.0.1:8000/" >入力画面</a><a class="nenbetu" href="http://127.0.0.1:8000/tarukame_nenbetu" >年別データ</a></div>
     <div class="home_name">家計簿タルカメ</div>
     </header>
