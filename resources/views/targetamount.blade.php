@@ -27,8 +27,6 @@
 </div>
     <tbody>
         @foreach ($payments as $payment)
-          <th>ユーザー</th>
-          <th>合計値</th>
               <tr>
                 <td>{{ $payment->user_id }}</td>
                 <td>{{ $payment->income }}</td>
@@ -51,7 +49,7 @@
         <tr>
             <td>{{ $payment->income}}</td>
             <td>{{ $payment->spending }}</td>
-            <td>{{ $payment->name }}</td>
+            <td>{{ $payment->payment_name }}</td>
             <td>{{ $payment->date}}</td>
         </tr>
       @endforeach
