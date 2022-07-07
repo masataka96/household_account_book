@@ -1,74 +1,77 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use App\Models\Payment;
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class PaymentController extends Controller
+class Payment extends Model
 {
+    use HasFactory;
 
-    public function __construct()
+    //モデルに関連付けるテーブル
+    protected $table = 'payments';
+
+    //テーブルに関連付ける主キー
+    protected $primarykey = 'id';
+
+    //登録・更新可能なカラムの指定
+    protected $fillable = [
+        'id',
+        'user_id',
+        'spending',
+        'income',
+        'payment_name',
+        'date',
+        'amount'
+    ];
+
+    //一覧画面表示用にpaymentsテーブルから全てのデータを取得
+    public function findAllPayments()
     {
-        $this->payment = new Payment();
+        return Payment::all();
     }
 
     /**
-     * 一覧画面
+     * リクエストされたIDをもとにpaymentsテーブルのレコードを1件取得
      */
-    public function index()
+    public function findPaymentById($id)
     {
-        $payments = $this->payment->findAllPayments();
-
-        return view('payment.index', compact('payments'));
+        return Payment::find($id);
     }
 
-    /**
-     * 登録画面
-     */
-    public function create(Request $request)
-    {        
-        return view('payment.create');
-    }
-
-    /**
+     /**
      * 登録処理
      */
-    public function store(Request $request)
+    public function InsertPayment($request)
     {
-        $registerPayment = $this->payment->InsertPayment($request);
-        return redirect()->route('payment.index');
-    }
-
-    /**
-     * 編集画面の表示
-     */
-    public function edit($id)
-    {
-        $payment = Payment::find($id);
-
-        return view('payment.edit', compact('payment'));
+        // リクエストデータを基に管理マスターユーザーに登録する
+        return $this->create([
+            'payment_name' => $request->payment_name,
+            'amount' => $request->amount,
+            'date' => $request->date,
+        ]);
     }
 
     /**
      * 更新処理
      */
-    public function update(Request $request, $id)
+    public function updatePayment($request, $payment)
     {
-        $payment = Payment::find($id);
-        $updatePayment = $this->payment->updatePayment($request, $payment);
+        $result = $payment->fill([
+            'payment_name' => $request->payment_name,
+            'amount' => $request->amount,
+            'date' => $request->date,
+        ])->save();
 
-        return redirect()->route('payment.index');
+        return $result;
     }
 
     /**
      * 削除処理
      */
-    public function destroy($id)
+    public function deletePaymentById($id)
     {
-        // 指定されたIDのレコードを削除
-        $deletePayment = $this->payment->deletePaymentById($id);
-        // 削除したら一覧画面にリダイレクト
-        return redirect()->route('payment.index');
+        return $this->destroy($id);
     }
 }

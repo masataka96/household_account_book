@@ -23,13 +23,7 @@ class Payment extends Model
         'income',
         'payment_name',
         'date',
-        'amount',
-        'created_at',
-        'created_by',
-        'updated_at',
-        'updated_by',
-        'deleted_at',
-        'deleted_by'
+        'amount'
     ];
 
     //一覧画面表示用にpaymentsテーブルから全てのデータを取得
