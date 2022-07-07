@@ -30,14 +30,7 @@ class BlueprintServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blueprint::macro('systemColumns', function () {
-            $this->timestamp('created_at')->nullable();
-            $this->unsignedBigInteger('created_by')->nullable();
-            $this->timestamp('updated_at')->nullable();
-            $this->unsignedBigInteger('updated_by')->nullable();
-            $this->timestamp('deleted_at')->nullable();
-            $this->unsignedBigInteger('deleted_by')->nullable();
-        });
+        //
     }
 
 }
