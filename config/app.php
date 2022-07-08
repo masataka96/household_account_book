@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         App\Providers\BlueprintServiceProvider::class,
 
+        
         /*
          * Package Service Providers...
          */

@@ -23,19 +23,18 @@ class Payment extends Model
         'income',
         'payment_name',
         'date',
-        'amount',
-        'created_at',
-        'created_by',
-        'updated_at',
-        'updated_by',
-        'deleted_at',
-        'deleted_by'
+        'amount'
     ];
 
     //一覧画面表示用にpaymentsテーブルから全てのデータを取得
     public function findAllPayments()
     {
         return Payment::all();
+    }
+
+    public function fetchAllByUserId($userId)
+    {
+        return Payment::where("user_id", $userId)->get();
     }
 
     /**
@@ -53,6 +52,8 @@ class Payment extends Model
     {
         // リクエストデータを基に管理マスターユーザーに登録する
         return $this->create([
+            'user_id' => \Auth::id(),
+            'name' => $request->name,
             'payment_name' => $request->payment_name,
             'amount' => $request->amount,
             'date' => $request->date,

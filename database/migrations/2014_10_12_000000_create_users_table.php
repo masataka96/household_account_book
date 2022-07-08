@@ -19,7 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('email',254);
             $table->string('password',128);
             $table->string('grade',50)->nullable();
-            $table->systemColumns(); // 共通カラム定義
         });
     }
 
