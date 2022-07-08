@@ -8,17 +8,17 @@
 
 @section('データ一覧')
 
-<header class="header_main"><div class="header_menu"><a class="tukibetu" href="" >月別データ</a>
+<header class="header_main"><div class="header_menu"><a class="tukibetu" href="http://127.0.0.1:8000/tarukame_totalling" >月別データ</a>
     <a class="mokuhyou" href="http://127.0.0.1:8000/targetamountsetting" >目標金額</a><div class="logo"> <a href="http://127.0.0.1:8000/tarukame_home"><img class="logo_pic" src="{{ asset('img/mark_yen_okaikei.png') }}" alt="ホームロゴ"></a></div>
-    <a class="nyuryoku" href="http://127.0.0.1:8000/" >入力画面</a><a class="nenbetu" href="http://127.0.0.1:8000/tarukame_nenbetu" >年別データ</a></div>
+    <a class="nyuryoku" href="http://127.0.0.1:8000/" >入力画面</a><a class="nenbetu" href="" >年別データ</a></div>
     <div class="home_name">家計簿タルカメ</div>
     </header>
-    
+
 
 
 <body>
  
-<div class="hiduke">{{$seireki}}年{{$tuki}}月</div>
+<div class="hiduke_nenbetu">{{$seireki}}年</div>
       
     
 
@@ -35,7 +35,7 @@
            $yazirusimigi_henkou="yazirusimigi_zero";
            $yazirusihidari_henkou="yazirusihidari_zero";
            $karenda="karenda_zero";
-           $kensaku="kensaku_zero";
+           $kensaku="kensaku_zero_nenbetu";
    ?>
          </tr>
     @endif
@@ -48,7 +48,7 @@
            $yazirusimigi_henkou="yazirusimigi";
            $yazirusihidari_henkou="yazirusihidari";
            $karenda="karenda";
-           $kensaku="kensaku";
+           $kensaku="kensaku_nenbetu";
    ?>
     @foreach ($recodes as $syuturyoku)
     @foreach ($sisyutusum as $sisyutgoukei)
@@ -71,14 +71,14 @@
 
    <div class={{$henkou}}><canvas id="myPieChart1" width="3800" height="1080" class="mypie2"></canvas> </div>
   
-   <form method="post" action="{{ url('data_search') }}">
+   <form method="post" action="{{ url('data_search_seireki') }}">
    {{ csrf_field() }}
-   <div class={{$karenda}}><input type="month"name="seireki"value=""></div>
+   <div class={{$karenda}}><input type="number"name="seireki"value={{$seireki}}></div>
    <div class={{$kensaku}}><input class="btn btn-secondary" type="submit" value="検索" ></div>
    </form> 
    
-    <div class={{$yazirusihidari_henkou}}> <a href="{{ url('tukibetu_return',['now_tuki'=>$tuki,'now_seireki'=>$seireki])}}"class="left_yazirusi">←</a></div>
-    <div class={{$yazirusimigi_henkou}}><a href="{{ url('tukibetu',['now_tuki'=>$tuki,'now_seireki'=>$seireki])}}" class="right_yazirusi">→</a></div>
+    <div class={{$yazirusihidari_henkou}}> <a href="{{ url('nenbetu_return',['now_seireki'=>$seireki])}}"class="left_yazirusi">←</a></div>
+    <div class={{$yazirusimigi_henkou}}><a href="{{ url('nenbetu',['now_seireki'=>$seireki])}}" class="right_yazirusi">→</a></div>
 
 
 

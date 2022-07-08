@@ -21,15 +21,9 @@ class Payment extends Model
         'user_id',
         'spending',
         'income',
-        'name',
+        'payment_name',
         'date',
-        'amount',
-        'created_at',
-        'created_by',
-        'updated_at',
-        'updated_by',
-        'deleted_at',
-        'deleted_by'
+        'amount'
     ];
     /**
      *  paymentを保持するユーザーの取得
@@ -66,6 +60,7 @@ class Payment extends Model
         return $this->create([
             'user_id' => \Auth::id(),
             'name' => $request->name,
+            'payment_name' => $request->payment_name,
             'amount' => $request->amount,
             'date' => $request->date,
         ]);
@@ -77,7 +72,7 @@ class Payment extends Model
     public function updatePayment($request, $payment)
     {
         $result = $payment->fill([
-            'name' => $request->name,
+            'payment_name' => $request->payment_name,
             'amount' => $request->amount,
             'date' => $request->date,
         ])->save();
