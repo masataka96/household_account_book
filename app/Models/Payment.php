@@ -18,6 +18,7 @@ class Payment extends Model
     //登録・更新可能なカラムの指定
     protected $fillable = [
         'id',
+        'user_id',
         'spending',
         'income',
         'payment_name',
@@ -30,13 +31,7 @@ class Payment extends Model
         'deleted_at',
         'deleted_by'
     ];
-    /**
-     *  paymentを保持するユーザーの取得
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+
     //一覧画面表示用にpaymentsテーブルから全てのデータを取得
     public function findAllPayments()
     {

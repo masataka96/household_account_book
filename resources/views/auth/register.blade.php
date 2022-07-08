@@ -5,15 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-<<<<<<< HEAD
-<<<<<<< HEAD
                 <div class="card-header text-center lead">{{ __('会員登録画面') }}</div>
-=======
-                <div class="card-header">{{ __('Register') }}</div>
->>>>>>> a3dc26ba4d37e7b22f203a85b46254264a401ee4
-=======
-                <div class="card-header text-center lead">{{ __('会員登録画面') }}</div>
->>>>>>> 854bab22770f0ff31524eb8e0308456890a3d3db
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

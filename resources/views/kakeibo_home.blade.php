@@ -58,7 +58,7 @@
     <div class="itiran"> <th>内容</th> <th>支出</th><th>収入</th><th>登録日時</th> </div>
     <tr>
     
-    <td>{{ $syuturyoku->name }}<td>{{ $syuturyoku->spending }}<td>{{ $syuturyoku->income }}<td>{{ $syuturyoku->created_at}}</td>
+    <td>{{ $syuturyoku->payment_name }}<td>{{ $syuturyoku->spending }}<td>{{ $syuturyoku->income }}<td>{{ $syuturyoku->created_at}}</td>
    </tr>
    
    @endforeach
