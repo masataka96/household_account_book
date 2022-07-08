@@ -67,7 +67,7 @@ public function kakeibo_home()//ホーム画面で今月分のデータを取得
    
     $syunyusum  =   DB::table('payments')->whereYear('created_at', $seireki)->whereMonth('created_at', $tuki)->selectRaw('SUM(income) AS total_income')->get();
   
-    return view('kakeibo_home',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));
+    return view('kakeibo_home',compact('recodes','sisyutusum','syunyusum','seireki','hiduke','tuki'));//
 }
 
 public function add_month($now_tuki,$now_seireki)////次の月を取得
