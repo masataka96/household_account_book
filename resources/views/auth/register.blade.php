@@ -70,6 +70,7 @@
                         </div>
                     </form>
                 </div>
+                <a class="btn btn-link" href="/login" >{{ __('Return to login screen') }}</a>
             </div>
         </div>
     </div>

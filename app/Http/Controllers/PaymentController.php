@@ -18,7 +18,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $payments = $this->payment->findAllPayments();
+        $userId = \Auth::id();
+
+        $payments = $this->payment->fetchAllByUserId($userId);
 
         return view('payment.index', compact('payments'));
     }
@@ -27,7 +29,7 @@ class PaymentController extends Controller
      * 登録画面
      */
     public function create(Request $request)
-    {        
+    {    
         return view('payment.create');
     }
 

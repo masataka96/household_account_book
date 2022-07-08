@@ -18,6 +18,7 @@ class Payment extends Model
     //登録・更新可能なカラムの指定
     protected $fillable = [
         'id',
+        'user_id',
         'spending',
         'income',
         'name',
@@ -43,6 +44,11 @@ class Payment extends Model
         return Payment::all();
     }
 
+    public function fetchAllByUserId($userId)
+    {
+        return Payment::where("user_id", $userId)->get();
+    }
+
     /**
      * リクエストされたIDをもとにpaymentsテーブルのレコードを1件取得
      */
@@ -58,6 +64,7 @@ class Payment extends Model
     {
         // リクエストデータを基に管理マスターユーザーに登録する
         return $this->create([
+            'user_id' => \Auth::id(),
             'name' => $request->name,
             'amount' => $request->amount,
             'date' => $request->date,
