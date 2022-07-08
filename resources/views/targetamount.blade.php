@@ -14,30 +14,15 @@
     <h1 class="main-title mt-5">家計簿</h1>
 </header>
 <body>
-<P class="fs-2 text-center">目標金額:{{ $targetamountsetting->targetamountsetting}}</P>
+<P class="fs-2 text-center">目標金額:{{ $targetamountsetting->targetamountsetting??''}}</P>
 <div class="container overflow-hidden">
   <div class="row gx-5">
     <div class="col">
-     <div class="p-3 border bg-light text-primary ">収入:</div>
-    </div>
     <div class="col">
-      <div class="p-3 border bg-light text-danger">支出:</div>
-    </div>
-  </div>
-</div>
-    <tbody>
-        @foreach ($payments as $payment)
-          <tr>
-            <td>{{ $payment->income }}</td>
-            <td>{{ $payment->spending }}</td>
-          </tr>
-        @endforeach
-    </tbody>
 <table class="table table-bordered mt-5 mb-5 text-center">
   <thead  class="main-column">
     <tr>
-      <th scope="col" class="text-primary">収入</th>
-      <th scope="col" class="text-danger">支出</th>
+      <th scope="col" class="text-primary">金額</th>
       <th scope="col" class="text-success">内容</th>
       <th scope="col">日付</th>
       
@@ -46,9 +31,8 @@
   <tbody>
       @foreach ($payments as $payment)
         <tr>
-            <td>{{ $payment->income}}</td>
-            <td>{{ $payment->spending }}</td>
-            <td>{{ $payment->name }}</td>
+            <td>{{ $payment->amount }}</td>
+            <td>{{ $payment->payment_name }}</td>
             <td>{{ $payment->date}}</td>
         </tr>
       @endforeach
