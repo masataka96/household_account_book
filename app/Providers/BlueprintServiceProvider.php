@@ -30,7 +30,7 @@ class BlueprintServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
     }
 
 }
