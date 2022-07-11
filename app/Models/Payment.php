@@ -25,13 +25,7 @@ class Payment extends Model
         'date',
         'amount'
     ];
-    /**
-     *  paymentを保持するユーザーの取得
-     */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+
     //一覧画面表示用にpaymentsテーブルから全てのデータを取得
     public function findAllPayments()
     {
