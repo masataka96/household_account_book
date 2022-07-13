@@ -48,7 +48,7 @@
            $kensaku="kensaku";
    ?>
     @foreach ($recodes as $syuturyoku)
-    @foreach ($sisyutusum as $sisyutgoukei)
+    @foreach ($sisyutusum as $sisyutgoukei ?? '')
     @foreach ($syunyusum as $syunyugoukei)
     @method('delete')
         
@@ -63,7 +63,7 @@
    
    
   <div class="Balance_column"> </div>
-  <div class="sisyutu_goukei">支出合計</div><div class="sisyutu_goukeigaku">{{number_format($sisyutgoukei->total_spending)}}円</div><div class="syunyu_goukei">収入合計</div><div class="syunyu_goukeigaku">{{number_format($syunyugoukei->total_income)}}円</div><div class="syusi">収支</div><div class="syusi_goukeigaku">{{number_format($syunyugoukei->total_income-$sisyutgoukei->total_spending)}}円</div>
+  <div class="sisyutu_goukei">支出合計</div><div class="sisyutu_goukeigaku">{{number_format($sisyutgoukei ?? '' ?? ''->total_spending)}}円</div><div class="syunyu_goukei">収入合計</div><div class="syunyu_goukeigaku">{{number_format($syunyugoukei->total_income)}}円</div><div class="syusi">収支</div><div class="syusi_goukeigaku">{{number_format($syunyugoukei->total_income-$sisyutgoukei ?? '' ?? ''->total_spending)}}円</div>
    @endif
 
    <div class={{$henkou}}><canvas id="myPieChart1" width="3800" height="1080" class="mypie2"></canvas> </div>
@@ -74,7 +74,7 @@
 
 
    <?php
-   $total_sisyutu=$sisyutgoukei->total_spending;
+   $total_sisyutu=$sisyutgoukei ->total_spending;
    $sisyutu_json = json_encode($total_sisyutu);
    $total_syunyu=$syunyugoukei->total_income;
    $syunyu_json = json_encode($total_syunyu);
