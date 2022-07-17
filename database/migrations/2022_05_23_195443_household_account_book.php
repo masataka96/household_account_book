@@ -10,17 +10,12 @@ class HouseholdAccountBook extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
-            $table->string('name',100)->nullable();
-            $table->string('email',254)->nullable();
-            $table->string('password',128)->nullable();
-            $table->string('grade',50)->nullable();
             $table->string('payment_name',100);
-            $table->integer('amount');
             $table->date('date');
-            $table->integer('user_id')->nullable();
-            $table->integer('spending')->nullable();
-            $table->integer('income')->nullable();
-            $table->timestamps();
+            $table->integer('user_id')->nullable();//
+            $table->integer('spending')->nullable();//支出
+            $table->integer('income')->nullable();//収入
+            $table->timestamps();//データ更新日
         });
     }
 

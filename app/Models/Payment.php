@@ -22,8 +22,8 @@ class Payment extends Model
         'spending',
         'income',
         'payment_name',
-        'date',
-        'amount'
+        'date'
+       
     ];
 
     //一覧画面表示用にpaymentsテーブルから全てのデータを取得
